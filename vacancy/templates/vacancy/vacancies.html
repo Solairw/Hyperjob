@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vacancy list</title>
+</head>
+<body>
+{%  if vacancies %}
+{% for vacancy in vacancies %}
+
+<div>{{vacancy.author}}: {{vacancy.description}}</div>
+
+{% endfor %}
+
+{% else %}
+    no vacancies were found
+{%  endif %}
+</body>
+</html>

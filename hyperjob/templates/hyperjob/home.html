@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+</head>
+<body>
+<form method="post">{% csrf_token %}
+    {% if request.user.is_authenticated %}
+        {% if request.user.is_staff %}
+            <a href="vacancy/new">Post a vacancy</a>
+        {% else %}
+            <a href="resume/new">Post a resume</a>
+        {% endif %}
+    {% else %}
+        Login first!
+    {% endif %}
+</form>
+
+</body>
+</html>

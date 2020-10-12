@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create new resume</title>
+</head>
+<body>
+{% if request.user.is_authenticated %}
+        {% if not request.user.is_staff %}
+            <form method="post" action="new">{% csrf_token %}
+            <table>{{ form.as_table }}</table>
+            <button type="submit">Send</button>
+            </form>
+    {% endif %}
+{% endif %}
+</body>
+</html>
